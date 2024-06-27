@@ -43,9 +43,9 @@ app.get('/items/getAllCatalog', async (req, res) => {
     // Assuming the Swagger page returns JSON data
     const swaggerData = new Blob([response.data], { type: 'image/jpg' });  // Create a Blob object// response.data;
     console.log('Received JSON data All catalog:', swaggerData);
-	
+	const objectURL = URL.createObjectURL(swaggerData); 
     // Respond with the data received from the API
-    res.json(swaggerData);
+    res.json(objectURL);
   } catch (error) {
     console.error('Error fetching data All catalog:', error);
     res.status(500).send('Error fetching data All catalog');
