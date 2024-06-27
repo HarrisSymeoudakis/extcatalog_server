@@ -30,11 +30,13 @@ app.use((req, res, next) => {
   next();
 });
 
+//https://extcatalog-server.onrender.com/items/getAllCatalog
 // All Customer Orders
 app.get('/items/getAllCatalog', async (req, res) => {
   try {
     
-    const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3;
+    //const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3;
+	  const url= "https://90571062-test-retail-ondemand.cegid.cloud/Y2/90571062_002_TEST/api/items/10AB0025%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20X/images/v1";
     // Make a GET request to the Swagger page with defined headers
     const response = await axios.get(url, { headers });
 
