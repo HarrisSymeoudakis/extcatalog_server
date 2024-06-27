@@ -2,7 +2,7 @@ import axios from 'axios'; // Import Axios for making HTTP requests
 import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
-const fs = require('fs'); // File system module
+
 
 const app = express();
 const port = process.env.PORT || 1000;
