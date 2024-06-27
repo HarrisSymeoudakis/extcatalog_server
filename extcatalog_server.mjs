@@ -55,7 +55,7 @@ app.get('/items/getAllCatalog', async (req, res) => {
 const response = await axios.get(url, { headers });
 
     if (response.status === 200 ) {  // Check for successful response and image type
-      const blob = new Blob([response.data], { type: response.data.type });  // Create a Blob object
+      const blob = new Blob([response.data], { type: 'image/jpg' });  // Create a Blob object
       const objectURL = URL.createObjectURL(blob);  // Create an object URL
 
       // Respond with the objectURL
