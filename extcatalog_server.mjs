@@ -4,10 +4,18 @@ import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 1000;
+const baseUrl = "https://90571062-test-retail-ondemand.cegid.cloud/Y2/90571062_002_TEST/api/products-search/v1?"
+const jew1 = "ids=10AB0025                         X" ; 
+const jew2 = "&ids=10AB0045                         X" ; 
+const jew3 = "&ids=10AH0410                         X" ; 
+const wat1 = "&ids=BG220049                         X" ; 
+const wat2 = "&ids=BL260353                         X" ; 
+const wat3 = "&ids=BL600058                         X" ; 
+
 
 // Encode username and password for Basic Authentication
-const username = '90478305_003_TEST\\AI';
-const password = '1234';
+const username = '90571062_002_TEST\\Harris';
+const password = 'Cegid2';
 const auth = Buffer.from(`${username}:${password}`).toString('base64');
 
 const headers = {
@@ -26,8 +34,7 @@ app.use((req, res, next) => {
 app.get('/items/getAllCatalog', async (req, res) => {
   try {
     
-    const url = 'https://90478305-partner-retail-ondemand.cegid.cloud/Y2/90478305_003_TEST/api/products-search/v1?ids=DE010009%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20X&ids=DE010010%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20X&ids=DE020002%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20X&ids=DE020004%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20X&fields=UserFields';
-
+    const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3;
     // Make a GET request to the Swagger page with defined headers
     const response = await axios.get(url, { headers });
 
