@@ -1,6 +1,8 @@
 import axios from 'axios'; // Import Axios for making HTTP requests
 import express from 'express';
 import cors from 'cors';
+import fs from 'fs';
+const fs = require('fs'); // File system module
 
 const app = express();
 const port = process.env.PORT || 1000;
@@ -54,28 +56,40 @@ app.use((req, res, next) => {
 
 app.get('/items/getAllCatalog', async (req, res) => {
   try {
-    const url = "https://90571062-test-retail-ondemand.cegid.cloud/Y2/90571062_002_TEST/api/items/10AB0025%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20X/images/v1";
+    // ... existing logic to fetch image data
 
-    const response = await axios.get(url, { headers });
+    // Create a temporary file name (optional, for improved performance)
+    const tempFileName = path.join(__dirname, 'temp_image.jpg');  // Adjust file extension if needed
 
-    if (response.status === 200 && response.data.type === 'image/jpeg') {  // Check for successful response and image type
-      // Create a temporary file name (optional, for improved performance and security)
-      const tempFileName = path.join(__dirname, 'temp_image.jpg');  // Adjust file extension if needed
+    // Write the image data to a temporary file (optional)
+    fs.writeFileSync(tempFileName, response.data); // Assuming response.data contains the image data
 
-      // Write the image data to a temporary file (optional)
-      // fs.writeFileSync(tempFileName, response.data); // Uncomment if using temporary file approach
+    // Generate the URL for the temporary file (optional)
+    const tempFileUrl = `http://<span class="math-inline">\{req\.hostname\}\:</span>{port}/temp_image.jpg`; // Adjust based on your setup
 
-      // Respond with the image data directly (preferred)
-      res.setHeader('Content-Type', 'image/jpeg'); // Set appropriate content type header
-      res.send(response.data); // Send the image data directly in the response body
-    } else {
-      console.error('Error fetching or invalid image data');
-      res.status(500).send('Error fetching image data');
-    }
+    // ... (Optional) Send URL of temporary file (if using temporary file approach)
+    // res.json({ imageUrl: tempFileUrl }); 
+
+    // ... (Preferred) Send the image data directly in the response
+    res.setHeader('Content-Type', 'image/jpeg'); // Set appropriate content type header
+    res.send(response.data); // Send the image data directly in the response body
+
+    // ... (Optional) Clean up the temporary file after use (if using temporary file approach)
+    // fs.unlink(tempFileName, (err) => {
+    //   if (err) {
+    //     console.error('Error deleting temporary file:', err);
+    //   }
+    // });
   } catch (error) {
     console.error('Error fetching data All catalog:', error);
     res.status(500).send('Error fetching image data');
   }
+});
+
+// ... other routes and app configuration
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 // const response = await axios.get(url, { headers });
