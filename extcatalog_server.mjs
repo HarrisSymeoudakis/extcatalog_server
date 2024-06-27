@@ -4,8 +4,8 @@ import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 1000;
-const baseUrl = "https://90571062-test-retail-ondemand.cegid.cloud/Y2/90571062_002_TEST/api/products-search/v1?"
-const jew1 = "ids=10AB0025                         X" ; 
+const baseUrl = "https://90571062-test-retail-ondemand.cegid.cloud/Y2/90571062_002_TEST/api/products-search/v1"
+const jew1 = "?ids=10AB0025                         X" ; 
 const jew2 = "&ids=10AB0045                         X" ; 
 const jew3 = "&ids=10AH0410                         X" ; 
 const wat1 = "&ids=BG220049                         X" ; 
