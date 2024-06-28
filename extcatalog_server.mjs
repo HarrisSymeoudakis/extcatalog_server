@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 //https://extcatalog-server.onrender.com/items/getAllCatalog
 app.get('/items/getAllCatalog', async (req, res) => {
-
+try{
     
     const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3;
     // Define the headers for the request
@@ -52,7 +52,7 @@ app.get('/items/getAllCatalog', async (req, res) => {
   } catch (error) {
     console.error('Error fetching data for customer User fields:', error);
     res.status(500).send('Error fetching data for customer User fields');
-  }
+  }}
 );
 
 
