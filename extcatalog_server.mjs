@@ -64,6 +64,7 @@ const response = await axios.get(url, { headers });
       const objectURL = URL.createObjectURL(blob);  // Create an object URL
 
       // Respond with the objectURL
+	    console.log(objectURL);
       res.json({ imageURL: objectURL });
     } else {
       console.error('Error fetching or invalid image data');
