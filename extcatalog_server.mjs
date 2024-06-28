@@ -93,7 +93,7 @@ app.get('/items/Image', async (req, res) => {
 		return res.status(400).send('Item code is required');
 	}
   try {
-		const imageUrl = `https://90478305-partner-retail-ondemand.cegid.cloud/Y2/90478305_003_TEST/api/items/${encodeURIComponent(itemCode)}/images/v1`;
+		const imageUrl = `https://90571062-partner-retail-ondemand.cegid.cloud/Y2/90571062_002_TEST/api/items/${encodeURIComponent(itemCode)}/images/v1`;
 
     const response = await axios({
       url: imageUrl,
