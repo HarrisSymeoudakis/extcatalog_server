@@ -53,7 +53,7 @@ app.get('/items/getAllCatalog', async (req, res) => {
     console.error('Error fetching data for customer User fields:', error);
     res.status(500).send('Error fetching data for customer User fields');
   }
-});
+);
 
 
 // All Customer Orders
