@@ -12,6 +12,7 @@ const jew3 = "&ids=10AH0410                         X" ;
 const wat1 = "&ids=BG220049                         X" ; 
 const wat2 = "&ids=BL260353                         X" ; 
 const wat3 = "&ids=BL600058                         X" ; 
+const fields = "&fields=UserFields";
 
 
 // Encode username and password for Basic Authentication
@@ -37,7 +38,7 @@ app.use((req, res, next) => {
 app.get('/items/getAllCatalog', async (req, res) => {
 try{
     
-    const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3;
+    const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3+fields;
     // Define the headers for the request
   
     // Make a GET request to the Swagger page with defined headers
