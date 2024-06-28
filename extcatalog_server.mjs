@@ -46,11 +46,12 @@ const response = await axios.get(url, { headers });
     if (response.status === 200 ) {  // Check for successful response and image type
       const blob = new Blob([response.data], { type: 'image/jpg' });  // Create a Blob object
 	    console.log(blob);
-      const objectURL = URL.createObjectURL(blob);  // Create an object URL
+      // const objectURL = URL.createObjectURL(blob);  // Create an object URL
 
       // Respond with the objectURL
-	    console.log(objectURL);
-      res.json({ imageURL: objectURL });
+	    // console.log(objectURL);
+      // res.json({ imageURL: objectURL });
+	    res.json({ imageURL: blob });
     } else {
       console.error('Error fetching or invalid image data');
       res.status(500).send('Error fetching image data');
