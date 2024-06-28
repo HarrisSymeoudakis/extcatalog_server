@@ -84,6 +84,26 @@ try{
 //     res.status(500).send('Error fetching data All catalog');
 //   }
 // });
+
+
+app.get('/items/Image', async (req, res) => {
+  try {
+		const imageUrl = 'https://90571062-test-retail-ondemand.cegid.cloud/Y2/90571062_002_TEST/api/items/10AB0025%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20X/images/v1';
+
+    const response = await axios({
+      url: imageUrl,
+      method: 'GET',
+      responseType: 'arraybuffer', // Important for handling binary data
+      headers: headers // Include headers here
+    });
+
+    res.set('Content-Type', response.headers['content-type']);
+    res.send(response.data);
+      } catch (error) {
+    console.error('Error fetching data item image:', error);
+    res.status(500).send('Error fetching data item image');
+  }
+});
 	  
 
 // Start the server
