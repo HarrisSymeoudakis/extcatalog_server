@@ -39,11 +39,7 @@ app.get('/items/getAllCatalog', async (req, res) => {
     
     const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3;
     // Define the headers for the request
-    const headers = {
-	  'Authorization': `Basic ${auth}`,
-	  'Content-Type': 'application/json' // Adjust content type if needed
-	};
-
+  
     // Make a GET request to the Swagger page with defined headers
     const response = await axios.get(url, { headers });
 
