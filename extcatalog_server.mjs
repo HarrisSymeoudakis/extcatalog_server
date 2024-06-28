@@ -57,11 +57,7 @@ app.get('/items/getAllCatalog', async (req, res) => {
 
 
 
-// ... other routes and app configuration
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 // const response = await axios.get(url, { headers });
 
