@@ -93,7 +93,7 @@ try{
 
 
 app.get('/items/Image/:itemCode', async (req, res) => {
-	const itemCode = req.query.itemCode; // Get item code from query parameters
+	const itemCode = req.params.itemCode; // Get item code from query parameters
 
 	if (!itemCode) {
 		return res.status(400).send('Item code is required');
