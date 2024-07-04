@@ -109,9 +109,7 @@ app.get('/items/Image', async (req, res) => {
     });
 
     res.set('Content-Type', response.headers['content-type']);
-	  res.set
-	  console.log("response.data:" + response.data);
-	  console.log("res:" + res);
+	 
     res.send(response.data);
       } catch (error) {
     console.error('Error fetching data item image:', error);
