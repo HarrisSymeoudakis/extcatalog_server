@@ -14,6 +14,12 @@ const wat2 = "&ids=BL260353                         X" ;
 const wat3 = "&ids=BL600058                         X" ; 
 const fields = "&fields=UserFields";
 
+const jew1 = "10AB0025                         X" ; 
+const jew2 = "10AB0045                         X" ; 
+const jew3 = "10AH0410                         X" ; 
+const wat1 = "BG220049                         X" ; 
+const wat2 = "BL260353                         X" ; 
+const wat3 = "BL600058                         X" ; 
 
 // Encode username and password for Basic Authentication
 const username = '90571062_002_TEST\\Harris';
