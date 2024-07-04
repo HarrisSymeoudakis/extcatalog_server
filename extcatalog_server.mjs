@@ -93,11 +93,11 @@ try{
 
 
 app.get('/items/Image', async (req, res) => {
-	const itemCode = req.query.itemCode; // Get item code from query parameters
+	// const itemCode = req.query.itemCode; // Get item code from query parameters
 
-	if (!itemCode) {
-		return res.status(400).send('Item code is required');
-	}
+	// if (!itemCode) {
+	// 	return res.status(400).send('Item code is required');
+	// }
   try {
 		const imageUrl = `https://90571062-test-retail-ondemand.cegid.cloud/Y2/90571062_002_TEST/api/items/${encodeURIComponent("10AB0025                         X")}/images/v1`;
 
