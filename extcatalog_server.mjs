@@ -31,9 +31,7 @@ const headers = {
   'Content-Type': 'application/json' // Adjust content type if needed
 };
 
-  // const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3;
 
-// Middleware to allow CORS
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); // Update * to your specific origin if needed
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -44,7 +42,7 @@ app.use((req, res, next) => {
 app.get('/items/getAllCatalog', async (req, res) => {
 try{
     
-    const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3+fields;
+    const url = baseUrl + vw1+vw2+vw3+vw4+vw5+vw6+vw7+vw8+vw9+fields;
     // Define the headers for the request
   
     // Make a GET request to the Swagger page with defined headers
@@ -52,45 +50,36 @@ try{
 
     // Assuming the Swagger page returns JSON data
     const swaggerData = response.data;
-    console.log('Received JSON data from Customer User fields:', swaggerData);
+    console.log('Received JSON data from item User fields:', swaggerData);
 
     // Respond with the data received from the API
     res.json(swaggerData);
   } catch (error) {
-    console.error('Error fetching data for customer User fields:', error);
-    res.status(500).send('Error fetching data for customer User fields');
+    console.error('Error fetching data for item User fields:', error);
+    res.status(500).send('Error fetching data for item User fields');
   }}
 );
 
-
-// All Customer Orders
-// app.get('/items/getAllCatalog', async (req, res) => {
-//   try {
+// Get price Lists
+app.get('/items/getAllPrices', async (req, res) => {
+try{
     
+    const url = 'https://90478305-partner-retail-ondemand.cegid.cloud/Y2/90478305_003_TEST/api/items-selling-prices-settings/v1?request.itemCodes=FR2765&request.itemCodes=FR2768&request.itemCodes=FR2769&request.itemCodes=FR2770&request.itemCodes=FR2775&request.itemCodes=FR2776&request.itemCodes=FR2777&request.itemCodes=FR2778&request.itemCodes=FR2779&request.fields=';
   
-// 	  const url= "https://90571062-test-retail-ondemand.cegid.cloud/Y2/90571062_002_TEST/api/items/10AB0025%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20X/images/v1";
+    // Make a GET request to the Swagger page with defined headers
+    const response = await axios.get(url, { headers });
 
-// const response = await axios.get(url, { headers });
+    // Assuming the Swagger page returns JSON data
+    const swaggerData = response.data;
+    console.log('Received JSON data from Retail Price:', swaggerData);
 
-//     if (response.status === 200 ) {  // Check for successful response and image type
-//       const blob = new Blob([response.data], { type: 'image/jpeg' });  // Create a Blob object
-// 	    console.log(blob);
-//       // const objectURL = URL.createObjectURL(blob);  // Create an object URL
-
-//       // Respond with the objectURL
-// 	    // console.log(objectURL);
-//       // res.json({ imageURL: objectURL });
-// 	    res.json({ imageURL: blob });
-//     } else {
-//       console.error('Error fetching or invalid image data');
-//       res.status(500).send('Error fetching image data');
-//     }
-//   } catch (error) {
-//     console.error('Error fetching data All catalog:', error);
-//     res.status(500).send('Error fetching data All catalog');
-//   }
-// });
-
+    // Respond with the data received from the API
+    res.json(swaggerData);
+  } catch (error) {
+    console.error('Error fetching data for Retail Price:', error);
+    res.status(500).send('Error fetching data for Retail Price');
+  }}
+);
 
 app.get('/items/Image/:itemCode', async (req, res) => {
 	const itemCode = req.params.itemCode; // Get item code from query parameters
@@ -122,3 +111,4 @@ app.get('/items/Image/:itemCode', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
