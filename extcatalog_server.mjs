@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 app.get('/items/getAllCatalog', async (req, res) => {
 try{
     
-    const url = baseUrl + vw1+vw2+vw3+vw4+vw5+vw6+vw7+vw8+vw9+fields;
+    const url = baseUrl + jew1+jew2+jew3+wat1+wat2+wat3+fields;
     // Define the headers for the request
   
     // Make a GET request to the Swagger page with defined headers
